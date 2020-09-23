@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
+import Todo from "./Todo";
 
 function App() {
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
 
-  const addATodo = () => {
+  const addATodo = (event) => {
+    event.preventDefault();
     console.log("todo added");
-
-    setTodos([...todos, inputText]);
+    setTodos([inputText, ...todos]);
+    setInputText("");
   };
 
   const onChangeHandler = (event) => {
@@ -18,8 +20,16 @@ function App() {
   return (
     <div className="app">
       <h1>Todo app</h1>
-      <input onChange={onChangeHandler} value={inputText} type="text" />
-      <button onClick={addATodo}>ADD A TODO</button>
+      <form>
+        <input onChange={onChangeHandler} value={inputText} type="text" />
+        <button disabled={!inputText} type="submit" onClick={addATodo}>
+          ADD A TODO
+        </button>
+      </form>
+
+      {todos.map((todo) => (
+        <Todo title={todo} />
+      ))}
     </div>
   );
 }
