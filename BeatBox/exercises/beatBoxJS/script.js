@@ -57,6 +57,5 @@ triggerBeat = (event) => {};
  */
 
 document.addEventListener("keydown", (event) => {
-  console.log(event);
   console.log(event.keyCode);
 });
