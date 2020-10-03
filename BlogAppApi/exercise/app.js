@@ -1,24 +1,14 @@
 const express = require("express");
 const app = express();
 const Post = require("./api/models/posts");
-const PostsData = new Post();
-
-const posts = [
-  {
-    id: "1581461442206",
-    title: "This is a New Blog Post",
-    content: "This is the content! ",
-    post_image: "uploads/post-image-1581461442199.jpg",
-    added_date: "1581461442206",
-  },
-];
+const postsData = new Post();
 
 app.get("/", (req, res) => {
   res.status(200).send("Hello World!");
 });
 
 app.get("/api/posts", (req, res) => {
-  res.status(200).send(posts);
+  res.status(200).send(postsData.get());
 });
 
 app.listen(3000, () => console.log("Listening on http://localhost:3000"));
