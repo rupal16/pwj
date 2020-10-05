@@ -25,6 +25,7 @@ app.get("/api/posts/:postId", (req, res) => {
     res.status(200).send(foundPost);
   } else {
     res.status(404).send("Not found");
+    console.log("error");
   }
 });
 
