@@ -161,3 +161,7 @@ footer {
   border-radius: 5px;
   padding: 5px 8px;
 }
+
+a.post-link {
+  text-decoration: none;
+}
