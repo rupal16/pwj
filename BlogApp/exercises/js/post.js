@@ -15,13 +15,34 @@ window.onload = () => {
 const getPostIdParam = () => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  console.log("urlarams>>", urlParams);
+  return urlParams.get("id");
 };
 
 const getPost = () => {
   // CODE GOES HERE
+  const postId = getPostIdParam();
+  const url = `${API_URL}${postId}`;
+  fetch(url, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      buildPost(data);
+    });
 };
 
 const buildPost = (data) => {
   // HINT: Convert the date number to a Date string
+  const postImage = `${API_BASE_URL}${data.post_image}`;
+
+  const postDate = new Date(parseInt(data.added_date)).toDateString();
+  document.querySelector("header").style.background = `url(${postImage})`;
+  document.getElementById("individual-post-title").innerText = data.title;
+  document.getElementById(
+    "individual-post-date"
+  ).innerText = `Published on ${postDate}`;
+  document.getElementById("individual-post-content").innerText = data.content;
 };
