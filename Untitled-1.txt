@@ -1,0 +1,7 @@
+curl -u "
+DLJozROpvNlUaR4PEt0WaDEQF:VTtJEQY1ZtEnPTzqV9gFOjENxdYC9cp6f3hi65Ik4b2jpiJ0VS" \
+  --data 'grant_type=client_credentials' \
+  'https://api.twitter.com/oauth2/token'
+
+
+  AAAAAAAAAAAAAAAAAAAAADqmHwEAAAAAVP1OV0FPa8freyW%2FqRahDfiu7y8%3D8djGpxtFy9nrHTjiaCmZdvgonvr2xAA3x2zCurG6Ivh5jMaFC0
